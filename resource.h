@@ -4,27 +4,34 @@
 #include <QObject>
 #include <QString>
 #include <QSettings>
+#include <QtCharts/QXYSeries>
 
-//using namespace QtCharts;
+QT_CHARTS_USE_NAMESPACE
 
 class QResource : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
-    Q_PROPERTY(int cpuUse READ getCpuUse WRITE setCpuUse NOTIFY cpuUseChanged)
+
+    Q_PROPERTY(QAbstractSeries *Serie READ getSerieUpdate WRITE setSerieUpdate NOTIFY SerieUpdated)
 
 public:
     explicit QResource(QObject *parent = nullptr);
     ~QResource();
 
+
+
     QString userName();
-    int cpuUse;
+    QAbstractSeries *getSerieUpdate();
+    void setSerieUpdate(QAbstractSeries *series);
+
+
     void setUserName(QString &userName);
     void setCpuUse(int Value);
     int getCpuUse();
 signals:
     void userNameChanged();
-    void cpuUseChanged();
+    void SerieUpdated();
 
 private:
     QString m_userName;

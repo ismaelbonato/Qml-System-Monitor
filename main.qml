@@ -63,27 +63,23 @@ ApplicationWindow {
 
         currentIndex: tabBar.currentIndex
         anchors.fill: parent
+        Item {
 
-        Item {
-            width: swipeView.width
-            height: swipeView.height
-            Loader {
-                id: process
-                source: "Process.qml"
-            }
-        }
-        Item {
-            Loader {
-                id: filesystem
-                source: "FileSystem.qml"
-            }
-        }
-        Item {
-            Loader {
-                id: resource
+            Resource {
                 width: swipeView.width
                 height: swipeView.height
-                source: "Resource.qml"
+            }
+        }
+        Item {
+            Process {
+                width: swipeView.width
+                height: swipeView.height
+            }
+        }
+        Item {
+            FileSystem {
+                width: swipeView.width
+                height: swipeView.height
             }
         }
     }
@@ -101,5 +97,4 @@ ApplicationWindow {
             text: "Resource"
         }
     }
-
 }

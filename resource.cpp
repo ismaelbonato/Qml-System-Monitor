@@ -15,15 +15,22 @@ QString QResource::userName()
     return m_userName;
 }
 
+QAbstractSeries *QResource::getSerieUpdate()
+{
+
+}
+
+void QResource::setSerieUpdate(QAbstractSeries *series)
+{
+    int v;
+}
+
 void QResource::setUserName(QString &userName)
 {
    if (userName == m_userName)
         return;
 
-
-
-    m_cpuUse = userName.split(" ")[0].toInt();
-    emit cpuUseChanged();
+    emit userNameChanged();
 }
 
 void QResource::setCpuUse(int Value)

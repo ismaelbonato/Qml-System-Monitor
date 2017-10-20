@@ -16,6 +16,7 @@ Item {
 
 
     ChartView {
+        id: chartView
         width: parent.width
         height: parent.height *0.5
         dropShadowEnabled: false
@@ -28,6 +29,7 @@ Item {
         theme: ChartView.ChartThemeDark
 
         SplineSeries {
+            name: "CPU 1"
             axisX: ValueAxis {
                 labelFormat: ("%.2d")
                 min: 0
@@ -40,16 +42,19 @@ Item {
                 max: 100
                 tickCount: 5
             }
-            name: "CPU 1"
-            XYPoint { x: 0; y: 0.0 }
-            XYPoint { x: 1.1; y: 3.2 }
-            XYPoint { x: 1.9; y: 2.4 }
-            XYPoint { x: 2.1; y: 2.1 }
-            XYPoint { x: 2.9; y: 2.6 }
-            XYPoint { x: 3.4; y: 2.3 }
-            XYPoint { x: 4.1; y: 3.1 }
         }
-
+    }
+    //![2]
+    Timer {
+        id: refreshTimer
+        interval: 1 // 60 Hz
+        running: true
+        repeat: true
+        onTriggered: {
+        //    resource.update(chartView.series(0));
+        }
     }
 
 }
+
+
