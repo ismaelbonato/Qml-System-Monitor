@@ -8,6 +8,7 @@ Project {
         Depends { name: "Qt.quick" }
         Depends { name: "Qt.widgets"}
         Depends { name: "Qt.gui"}
+        Depends { name: "Qt.charts"}
 
         // Additional import path used to resolve QML modules in Qt Creator's code model
         property pathList qmlImportPaths: []

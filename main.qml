@@ -52,11 +52,10 @@ import QtQuick 2.6
 import QtQuick.Controls 2.1
 import QtQuick.Window 2.3
 
-ApplicationWindow {
+Item {
     id: main
-    width: 700
-    height: 480
-    visible: true
+    width: 600
+    height: 400
 
     SwipeView {
         id: swipeView
@@ -83,8 +82,9 @@ ApplicationWindow {
             }
         }
     }
-    header: TabBar {
+    TabBar {
         id: tabBar
+        width: main.width
         currentIndex: swipeView.currentIndex
 
         TabButton {
